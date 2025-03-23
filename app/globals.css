@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 210 30% 99%;
+    --foreground: 210 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 30% 10%;
+    --primary: 215 90% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 210 40% 30%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 10% 50%;
+    --accent: 195 95% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 30% 90%;
+    --input: 210 30% 90%;
+    --ring: 215 90% 50%;
+    --chart-1: 215 90% 50%;
+    --chart-2: 195 90% 50%;
+    --chart-3: 240 90% 60%;
+    --chart-4: 180 90% 50%;
+    --chart-5: 225 90% 60%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    --background: 210 25% 98%;
+    --foreground: 210 10% 10%;
+    --card: 210 25% 100%;
+    --card-foreground: 210 10% 10%;
+    --popover: 210 25% 100%;
+    --popover-foreground: 210 10% 10%;
+    --primary: 215 90% 50%;
+    --primary-foreground: 210 10% 98%;
+    --secondary: 210 30% 95%;
+    --secondary-foreground: 210 10% 15%;
+    --muted: 210 25% 95%;
+    --muted-foreground: 210 10% 40%;
+    --accent: 195 95% 50%;
+    --accent-foreground: 210 10% 98%;
+    --destructive: 0 90% 50%;
+    --destructive-foreground: 210 10% 98%;
+    --border: 210 25% 85%;
+    --input: 210 25% 85%;
+    --ring: 215 90% 50%;
+    --chart-1: 215 90% 50%;
+    --chart-2: 195 90% 50%;
+    --chart-3: 240 90% 60%;
+    --chart-4: 180 90% 50%;
+    --chart-5: 225 90% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .gradient {
+    @apply bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500;
+  }
+  .gradient-title {
+    @apply gradient font-extrabold tracking-tighter text-transparent bg-clip-text pb-2 pr-2;
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-image-wrapper {
+  perspective: 1500px;
+}
+
+.hero-image {
+  transform: rotateX(5deg) scale(0.98);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  box-shadow: 0 20px 80px -20px rgba(14, 165, 233, 0.3);
+}
+
+.hero-image.scrolled {
+  transform: rotateX(0deg) scale(1.02) translateY(20px);
+  box-shadow: 0 30px 100px -10px rgba(14, 165, 233, 0.5);
+}
+
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgba(14, 165, 233, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.grid-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, rgba(255, 255, 255, 0.95) 80%);
+}
+
+/* Animation classes */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.rotate-in {
+  animation: rotateIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.bounce-in {
+  animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-5deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+}
