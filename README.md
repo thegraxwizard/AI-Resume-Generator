@@ -4,11 +4,11 @@ An AI-powered web application that generates personalized resumes and suggests c
 
 ## Features
 
-- ✨ Generate smart AI-based resumes
-- 🧭 Get career path suggestions tailored to your profile
-- 📁 Download resume as a professionally formatted PDF
-- 💬 Clean and intuitive UI powered by Tailwind CSS
-- 🔐 Secure authentication and session management
+- Generate smart AI-based resumes
+- Get career path suggestions tailored to your profile
+- Download resume as a professionally formatted PDF
+- Clean and intuitive UI powered by Tailwind CSS
+- Secure authentication and session management
 
 ## My Role
 
